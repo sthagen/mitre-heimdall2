@@ -100,6 +100,6 @@
     "mock-fs": "^5.0.0",
     "supertest": "^7.0.0",
     "unplugin-swc": "^1.5.5",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.18"
   }
 }
