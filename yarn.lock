@@ -284,24 +284,24 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-config-service@3.995.0":
-  version "3.995.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-config-service/-/client-config-service-3.995.0.tgz#d56d7e6e7041ac0495857499cccd51658e1db9f3"
-  integrity sha512-DD/RfOtmQ3zMi7abA8DZbFtHfLEWjX+XnHpnOFHSys7iI8vJTkMW5Psa7WW/18RWt4wQUaPwoaslyGtXlsrM6Q==
+"@aws-sdk/client-config-service@3.996.0":
+  version "3.996.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-config-service/-/client-config-service-3.996.0.tgz#752d517012faeec4a36c5546d2812005e2969341"
+  integrity sha512-P4On9ucZaBKFTJ2CP8lZP11EibQoQxapBm0UIqIT9tazJa1Ag57MTyx+pvHkPTSlyKnIgrYyA33dpE2Vb4iweQ==
   dependencies:
     "@aws-crypto/sha256-browser" "5.2.0"
     "@aws-crypto/sha256-js" "5.2.0"
-    "@aws-sdk/core" "^3.973.11"
-    "@aws-sdk/credential-provider-node" "^3.972.10"
+    "@aws-sdk/core" "^3.973.12"
+    "@aws-sdk/credential-provider-node" "^3.972.11"
     "@aws-sdk/middleware-host-header" "^3.972.3"
     "@aws-sdk/middleware-logger" "^3.972.3"
     "@aws-sdk/middleware-recursion-detection" "^3.972.3"
-    "@aws-sdk/middleware-user-agent" "^3.972.11"
+    "@aws-sdk/middleware-user-agent" "^3.972.12"
     "@aws-sdk/region-config-resolver" "^3.972.3"
     "@aws-sdk/types" "^3.973.1"
-    "@aws-sdk/util-endpoints" "3.995.0"
+    "@aws-sdk/util-endpoints" "3.996.0"
     "@aws-sdk/util-user-agent-browser" "^3.972.3"
-    "@aws-sdk/util-user-agent-node" "^3.972.10"
+    "@aws-sdk/util-user-agent-node" "^3.972.11"
     "@smithy/config-resolver" "^4.4.6"
     "@smithy/core" "^3.23.2"
     "@smithy/fetch-http-handler" "^5.3.9"
@@ -479,7 +479,7 @@
     "@smithy/util-utf8" "^4.2.0"
     tslib "^2.6.2"
 
-"@aws-sdk/core@^3.973.11", "@aws-sdk/core@^3.973.12":
+"@aws-sdk/core@^3.973.12":
   version "3.973.12"
   resolved "https://registry.yarnpkg.com/@aws-sdk/core/-/core-3.973.12.tgz#840323127c536871b7a7b58f31830107638c7d44"
   integrity sha512-hFiezao0lCEddPhSQEF6vCu+TepUN3edKxWYbswMoH87XpUvHJmFVX5+zttj4qi33saGiuOaJciswWcN6YSA9g==
@@ -567,7 +567,7 @@
     "@smithy/types" "^4.12.0"
     tslib "^2.6.2"
 
-"@aws-sdk/credential-provider-node@^3.972.10", "@aws-sdk/credential-provider-node@^3.972.11":
+"@aws-sdk/credential-provider-node@^3.972.11":
   version "3.972.11"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-node/-/credential-provider-node-3.972.11.tgz#1453252c0b3a71f908ab3fab43607d2e0edbb869"
   integrity sha512-maPmjL7nOT93a1QdSDzdF/qLbI+jit3oslKp7g+pTbASewkSYax7FwboETdKRxufPfCdrsRzMW2pIJ+QA8e+Bg==
@@ -735,7 +735,7 @@
     "@smithy/types" "^4.12.0"
     tslib "^2.6.2"
 
-"@aws-sdk/middleware-user-agent@^3.972.11", "@aws-sdk/middleware-user-agent@^3.972.12":
+"@aws-sdk/middleware-user-agent@^3.972.12":
   version "3.972.12"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-user-agent/-/middleware-user-agent-3.972.12.tgz#0351e79f22a47ef279609b4f1962a0497b43839a"
   integrity sha512-iv9toQZloEJp+dIuOr+1XWGmBMLU9c2qqNtgscfnEBZnUq3qKdBJHmLTKoq3mkLlV+41GrCWn8LrOunc6OlP6g==
@@ -843,17 +843,6 @@
   dependencies:
     tslib "^2.6.2"
 
-"@aws-sdk/util-endpoints@3.995.0":
-  version "3.995.0"
-  resolved "https://registry.npmjs.org/@aws-sdk/util-endpoints/-/util-endpoints-3.995.0.tgz#9815ef48b79e56e05130928885126385835a120c"
-  integrity sha512-aym/pjB8SLbo9w2nmkrDdAAVKVlf7CM71B9mKhjDbJTzwpSFBPHqJIMdDyj0mLumKC0aIVDr1H6U+59m9GvMFw==
-  dependencies:
-    "@aws-sdk/types" "^3.973.1"
-    "@smithy/types" "^4.12.0"
-    "@smithy/url-parser" "^4.2.8"
-    "@smithy/util-endpoints" "^3.2.8"
-    tslib "^2.6.2"
-
 "@aws-sdk/util-endpoints@3.996.0":
   version "3.996.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/util-endpoints/-/util-endpoints-3.996.0.tgz#62e76188fb13ff3aab3b8fa9e57d590dc1d14a35"
@@ -882,7 +871,7 @@
     bowser "^2.11.0"
     tslib "^2.6.2"
 
-"@aws-sdk/util-user-agent-node@^3.972.10", "@aws-sdk/util-user-agent-node@^3.972.11":
+"@aws-sdk/util-user-agent-node@^3.972.11":
   version "3.972.11"
   resolved "https://registry.yarnpkg.com/@aws-sdk/util-user-agent-node/-/util-user-agent-node-3.972.11.tgz#f49c97ab5a91e23ce7c0eb4b4bb9099e2a9b3686"
   integrity sha512-pQr35pSZANfUb0mJ9H87pziJQ39jW1D7xFRwh36eWfrEclbKoIqrzpOIVz49o1Jq9ZQzOtjS7rQVvt7V4w5awA==
