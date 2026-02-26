@@ -318,7 +318,7 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
 
    Oracle Linux:
 
-   - For Oracle Linux production installs, follow the [Oracle Linux Production Install guide](oracle-linux-production-install.md)
+   - For Oracle Linux production installs, follow the [Oracle Linux Production Install guide](https://github.com/mitre/heimdall2/wiki/Oracle-Linux-Production-Install)
 
    Ubuntu:
 
