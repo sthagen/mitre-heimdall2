@@ -1,7 +1,7 @@
 # Heimdall
 
-[![Run E2E Backend + Frontend Tests](https://github.com/mitre/heimdall2/workflows/Run%20E2E%20Backend%20+%20Frontend%20Tests/badge.svg)](https://github.com/mitre/heimdall2/actions/workflows/e2e-ui-tests.yml)
-[![Run Frontend Tests](https://github.com/mitre/heimdall2/workflows/Run%20Frontend%20Tests/badge.svg)](https://github.com/mitre/heimdall2/actions/workflows/frontend-tests.yml)
+[![Run E2E Backend + Frontend Tests](https://github.com/mitre/heimdall2/workflows/Run%20E2E%20Backend%20+%20Frontend%20Tests/badge.svg)](https://github.com/mitre/heimdall2/actions/workflows/e2e-ui-tests.yml) 
+[![Run Frontend Tests](https://github.com/mitre/heimdall2/workflows/Run%20Frontend%20Tests/badge.svg)](https://github.com/mitre/heimdall2/actions/workflows/frontend-tests.yml) 
 [![Run Backend Tests](https://github.com/mitre/heimdall2/workflows/Run%20Backend%20Tests/badge.svg)](https://github.com/mitre/heimdall2/actions/workflows/backend-tests.yml)
 
 This repository contains the source code for Heimdall's [Backend](https://github.com/mitre/heimdall2/tree/master/apps/backend), [Frontend (AKA Heimdall Lite)](https://github.com/mitre/heimdall2/tree/master/apps/frontend), [OHDF Converters](https://github.com/mitre/heimdall2/tree/master/libs/hdf-converters), and [InSpecJS](https://github.com/mitre/heimdall2/tree/master/libs/inspecjs).
@@ -61,7 +61,6 @@ This repository contains the source code for Heimdall's [Backend](https://github
 #### *These demos are only intended to show the functionality of Heimdall, please do not upload any sensitive data to them.*
 
 #### Released Previews
-
 [Heimdall Lite](https://heimdall-lite.mitre.org) | [Heimdall Server](https://heimdall-demo.mitre.org/) &nbsp;&nbsp;
 <a href="https://pages.github.com/">
 <picture>
@@ -71,15 +70,15 @@ This repository contains the source code for Heimdall's [Backend](https://github
 </picture>
 </a>
 
-#### Current *Development Master Branch* Preview
 
+#### Current *Development Master Branch* Preview
 [Heimdall Lite](https://heimdall-lite.netlify.com/) &nbsp;&nbsp; <a href="https://www.netlify.com">
 <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://www.netlify.com/v3/img/components/full-logo-dark-simple.svg">
    <source media="(prefers-color-scheme: light)" srcset="https://www.netlify.com/v3/img/components/full-logo-light-simple.svg">
    <img alt="Netlify Logo" src="https://www.netlify.com/v3/img/components/full-logo-dark-simple.svg" height="25">
 </picture>
-</a>
+</a> 
 <br />
 
 [Heimdall Server](https://mitre-heimdall-staging.herokuapp.com/) &nbsp;&nbsp; <a href="https://www.heroku.com/"><img src="https://www.herokucdn.com/deploy/button.svg" height="25"/></a>
@@ -90,14 +89,13 @@ There are two ways to deploy the MITRE Heimdall application - Heimdall-Lite and 
 
 ### Heimdall-Lite
 
-As a single-page javascript app - you can run Heimdall-Lite from any web-server, a *secured* S3 bucket or directly via GitHub Pages (as it is here). Heimdall-Lite gives you the ability to easily review and produce reports about your InSpec run, filter the results for easy review and hot-wash, print out reports, and much more.
+As a single-page javascript app - you can run Heimdall-Lite from any web-server, a _secured_ S3 bucket or directly via GitHub Pages (as it is here). Heimdall-Lite gives you the ability to easily review and produce reports about your InSpec run, filter the results for easy review and hot-wash, print out reports, and much more.
 
 ### Heimdall with Backend (Server)
 
 Heimdall with Backend, or Heimdall Server runs the same front end as Heimdall-Lite, but is supported with a backend database to store persistent data overtime.
 
 ### Features
-
 | Features                                                                       |   Heimdall-Lite    |                                    Heimdall with Backend                                    |
 | :----------------------------------------------------------------------------- | :----------------: | :-----------------------------------------------------------------------------------------: |
 | Additional Installation Requirements                                           |                    |                                       PostgreSQL Server                                       |
@@ -177,8 +175,7 @@ Heimdall's frontend container image is distributed on [DockerHub](https://hub.do
 
   *NGINX Configuration Note: You can configure NGINX settings by changing values in the `nginx/conf/default.conf` file.*
 
-1. Run the following commands in a terminal window from the Heimdall source directory. For more information on the .env file, visit [Environment Variables Configuration.](https://github.com/mitre/heimdall2/wiki/Environment-Variables-Configuration)
-
+5. Run the following commands in a terminal window from the Heimdall source directory. For more information on the .env file, visit [Environment Variables Configuration.](https://github.com/mitre/heimdall2/wiki/Environment-Variables-Configuration)
    ```bash
    # For Linux or Mac
    ./setup-docker-env.sh
@@ -190,8 +187,7 @@ Heimdall's frontend container image is distributed on [DockerHub](https://hub.do
 > [!TIP]
 > If you would like to further configure your Docker-based Heimdall deployment, edit the .env file located in the root directory generated after running the `setup-docker-env.sh` or `setup-docker-env.bat` scripts
 
-1. Heimdall might need certificates to access the open internet or internal resources (ex. an LDAP server).  Please convert any certificates into PEM files and place them in `./certs/` where they will be automatically ingested.  Alternatively, you can place a shell script that will retrieve those certs in that directory, and modify the `command` attribute underneath the `certs` service in the `docker-compose.yml` to run that script.
-
+6. Heimdall might need certificates to access the open internet or internal resources (ex. an LDAP server).  Please convert any certificates into PEM files and place them in `./certs/` where they will be automatically ingested.  Alternatively, you can place a shell script that will retrieve those certs in that directory, and modify the `command` attribute underneath the `certs` service in the `docker-compose.yml` to run that script.
   ```bash
   # Below is an example of what may be in the ./certs directory, including any scripts or certificates.
   # ./certs/
@@ -208,17 +204,15 @@ Heimdall's frontend container image is distributed on [DockerHub](https://hub.do
       ...
     ...
   ```
-
-  To make the `docker-compose.yml` aware of additional scripts, add `sh /etc/pki/ca-trust/source/anchors/NAME_OF_SCRIPT.sh &&` to the beginning of the section in quotes.
+  To make the `docker-compose.yml` aware of additional scripts, add `sh /etc/pki/ca-trust/source/anchors/NAME_OF_SCRIPT.sh && ` to the beginning of the section in quotes.
   NOTE: The script should make sure to place the certs within `/etc/pki/ca-trust/source/anchors/` since it will be run from the container, not the host.
 
-1. Start Heimdall Server by running this command:
-
+7. Start Heimdall Server by running this command:
   ```bash
   docker-compose up
   ```
 
-1. Navigate to [`https://127.0.0.1`](http://127.0.0.1). You should see the application's login page. (Note that if you used the option to generate your own self-signed certs, you will get warnings about them from your browser.)
+8. Navigate to [`https://127.0.0.1`](http://127.0.0.1). You should see the application's login page. (Note that if you used the option to generate your own self-signed certs, you will get warnings about them from your browser.)
 
 #### Updating Docker Container
 
@@ -240,7 +234,6 @@ From the source directory you started from run:
 ```bash
 docker-compose down
 ```
-
 ---
 
 #### Helm Chart
@@ -252,26 +245,23 @@ docker-compose down
 Cloud.gov is a [FEDRAMP moderate Platform-as-a-Service (PaaS)](https://marketplace.fedramp.gov/#!/product/18f-cloudgov?sort=productName). This repository includes a sample [manifest.yml.example](manifest.yml.example) file ready to be pushed and run the latest version of Heimdall2 as a container. Make a copy of the example file and update the key values as appropriate.
 `$ cp manifest.yml.example manifest.yml`
 
-1. Setup a cloud.gov account - <https://cloud.gov/docs/getting-started/accounts/>
+1. Setup a cloud.gov account - https://cloud.gov/docs/getting-started/accounts/ 
 
-2. Install the cf-cli - <https://cloud.gov/docs/getting-started/setup/>
+2. Install the cf-cli - https://cloud.gov/docs/getting-started/setup/
 
 3. Run the following commands in a terminal window from the Heimdall source directory.
-
 ```
 $ cd ~/Documents/Github/Heimdall2
 $ cf login -a api.fr.cloud.gov  --sso 
 # Follow the link to copy the Temporary Authentication Code when prompted
 ```
 
-1. Setup a demo application space
-
+4. Setup a demo application space
 ```
-cf target -o sandbox-rename create-space heimdall2-rename
+$ cf target -o sandbox-rename create-space heimdall2-rename
 ```
 
-1. Create a PostgreSQL database
-
+5. Create a PostgreSQL database
 ```
 # Update manifest.yml file to rename application and database key name
 $ cf marketplace
@@ -287,10 +277,9 @@ $ cf push
 ## External Data Sources (Interfaces)
 
 Heimdall currently provides connectivity to the following services for importing and visualizing scans:
-
-- AWS S3
-- Splunk
-- Tenable.SC
+  - AWS S3
+  - Splunk
+  - Tenable.SC
 
 ### AWS S3
 
@@ -303,6 +292,7 @@ For detail information on how to setup and connect to an `Splunk` instances (log
 ### Tenable.SC
 
 For detail information on how to setup and connect to an `Tenable.SC` instance see the [Heimdall Interface Connection - Tenable.SC Wiki](https://github.com/mitre/heimdall2/wiki/Heimdall-Interface-Connections#tenablesc)
+
 
 ## API Usage
 
@@ -333,7 +323,6 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
    Ubuntu:
 
    - See the [Debian and Ubuntu based distributions](https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions) provided by NodeSource for details on supported Node.js versions and additional installation information
-
    - ```bash
      # add NodeSource's Node.js distribution to /etc/apt/sources.list
      sudo curl -sL https://deb.nodesource.com/setup_18.x -o /tmp/nodesource_setup.sh
@@ -352,7 +341,6 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
      brew install nano # or preferred terminal-based editor
      sudo npm install -g yarn
      ```
-
    WINDOWS:
 
    - Use `Windows Subsystem for Linux (WSL)` - (use Ubuntu as the distro, and then follow the instructions listed for Ubuntu); alternatively you could do the following steps:
@@ -362,7 +350,6 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
      - Open and run (double-click) the .msi file, the installation process begins, follow the installation instructions
      - Node.js offers you options to install tools for native modules, we recommend checking the Automatically install the necessary tools check box.
      - Verify the Node and npm version
-
      ```shell
      node --version 
      npm --version
@@ -372,7 +359,6 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
      - Download the Yarn installation file from [GitHub](https://github.com/yarnpkg/yarn/releases/)
      - Open and run the installation file, follow the installation instructions
      - Run the following command in the PowerShell to verify the installation:
-
      ```shell
      yarn --version
      ```
@@ -402,7 +388,6 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
      # Switch back to your original OS user
      exit
      ```
-
    OSX:
 
     - ```sql
@@ -431,26 +416,21 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
 
    - Start the postgres server base on the installation method
      - Starting Postgres Server Using `net start`
-
        ```sql
        net start postgresql-[x32 or x64]-[version]
        ```
-
      - Starting Postgres Server Using `pg_ctl`
-
-       ```sql
+       ```sql 
        pg_ctl -D "C:\[path-to-postgres-installation]\PostgreSQL\[version]\data" start
        ```
-
      - Starting Postgres Server Using Services Manager
        - Press the `win key + R` to launch the `Run` window.
        - Type `services.msc` and hit the `OK` button to open the Services Manager:
        - Search for `Postgresql-[x32 or x64]-[version]`, select the service, and hit the `Start/play` button to start
 
    - Create the database user
-     - Recommend using pgAdmin and follow instruction listed here
+     - Recommend using pgAdmin and follow instruction listed here 
      - Open a postgres shell terminal (path to postgres executable directory must be set)
-
        ```sql
        # Start the terminal
        psql -U postgres
@@ -469,12 +449,10 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
 
 5. Edit or generate the `apps/backend/.env` file using the provided `setup-dev-env.sh or setup-dev-env.bat` script.
    - Make sure that the script is executed in the root directory of the repository. Use one of the following commands:
-
      ```bash
      ./setup-dev-env.sh # bash
      setup-dev-env.bat  # Windows
      ```
-
    - Make sure to set the DATABASE_USERNAME and DATABASE_PASSWORD fields with the values you set for PostgresDB in step 3.
 
    You can also manually edit the `apps/backend/.env` file in a text editor and set additional optional configuration values. For more info on configuration values see [Enviroment Variables Configuration](https://github.com/mitre/heimdall2/wiki/Environment-Variables-Configuration).
@@ -482,7 +460,7 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
 > [!NOTE]
 > The .env file in the root repository is for the Docker deployment of the Heimdall application. Running a local build will use the .env file in the `apps/backend` directory for the database configurations.
 
-1. Create and seed the database:
+6. Create and seed the database:
 
    - ```bash
      # Windows
@@ -496,7 +474,7 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
      yarn backend sequelize-cli db:seed:all
      ```
 
-2. Start Heimdall:
+7. Start Heimdall:
 
    - ```bash
      yarn start:dev
@@ -540,13 +518,13 @@ To test your code to make sure everything still works:
     yarn backend test:ci-cov
 
 <span style="color:red">**NOTE:**</span> The `Backend Nest Tests` will remove (BULKDELETE) all entries in the configured PostgreSQL server for the following tables:
+ - EvaluationTags
+ - Evaluations
+ - Users
+ - GroupEvaluations
+ - Groups
+ - GroupUsers
 
-- EvaluationTags
-- Evaluations
-- Users
-- GroupEvaluations
-- Groups
-- GroupUsers
 
 #### Run Cypress End to End Tests
 
@@ -557,7 +535,7 @@ The application includes an End-to-End (E2E) frontend and Backend tests (built u
 
 The first command will start an instance of Heimdall Server and exposes additional routes required to allow the tests to run. The second will open the Cypress UI which will run the tests any time code changes are made.
 
-> [!NOTE]
+> [!NOTE] 
 > When running the tests locally, tests that integrate with external services such as LDAP or Splunk will fail without having that external service running and configured. If these failures occur locally and local development does not impact the code relevant to those tests, you may consider permitting these failing tests locally and check that they pass in the pipeline in lieu of standing up local services only for testing purposes.
 
 #### Building the Heimdall Docker containers locally
@@ -578,7 +556,7 @@ This project uses the [Semantic Versioning Policy](https://semver.org/)
 
 ### Contributing
 
-Please feel free to look through our issues, make a fork and submit *PRs* and improvements. We love hearing from our end-users and the community and will be happy to engage with you on suggestions, updates, fixes or new capabilities.
+Please feel free to look through our issues, make a fork and submit _PRs_ and improvements. We love hearing from our end-users and the community and will be happy to engage with you on suggestions, updates, fixes or new capabilities.
 
 ### Issues and Support
 
