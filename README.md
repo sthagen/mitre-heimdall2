@@ -316,6 +316,10 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
 
 1. Install system dependencies with your system's package manager. NodeJS is required and can be installed via your system's package manager, or an alternative method if desired. Documented below is the installation via your system's package manager.
 
+   Oracle Linux:
+
+   - For Oracle Linux production installs, follow the [Oracle Linux Production Install guide](https://github.com/mitre/heimdall2/wiki/Oracle-Linux-Production-Install)
+
    Ubuntu:
 
    - See the [Debian and Ubuntu based distributions](https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions) provided by NodeSource for details on supported Node.js versions and additional installation information
