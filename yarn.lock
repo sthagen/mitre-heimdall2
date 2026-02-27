@@ -14663,9 +14663,9 @@ number-is-nan@^1.0.0:
     "@nx/nx-win32-x64-msvc" "22.5.2"
 
 oauth2-mock-server@^8.0.0:
-  version "8.2.1"
-  resolved "https://registry.npmjs.org/oauth2-mock-server/-/oauth2-mock-server-8.2.1.tgz#6360a5768308519e1f63e520c0d8f71cef07f4c9"
-  integrity sha512-fe8EW19FrGlCuQLLy03bPx+Ij+TQqdWlkR6q3lZD3Ci10ypMQlYdGhbomNlDlKwHOnued0PfidOqt4yHns7d6Q==
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/oauth2-mock-server/-/oauth2-mock-server-8.2.2.tgz#05312e497388656faa19f26ac1353dce5d1f5073"
+  integrity sha512-ZjMFtomGM4q1DflxEJpq2WVtSLbOjqlJYkkuGWdq9nL3oAbDExamFyhDN/bUqcooCHWeI0n99K/NU+gXEZLNiA==
   dependencies:
     basic-auth "^2.0.1"
     cors "^2.8.6"
