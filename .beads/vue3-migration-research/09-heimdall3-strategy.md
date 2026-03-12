@@ -21,7 +21,7 @@ Modernize Heimdall2 from a Vue 2 + Sequelize app with security vulnerabilities i
 | Schema sharing | 25 manual interfaces in libs/common/ | drizzle-zod auto-generated in libs/schemas/ |
 | API docs | None | OpenAPI 3.0 via nestjs-zod + @nestjs/swagger |
 | Form validation | vuelidate 0.7 (EOL) | VeeValidate 4 + @vee-validate/zod |
-| Auth framework | 8 hand-rolled Passport.js strategies | Modernized Passport.js + 2FA + refresh tokens |
+| Auth framework | 8 hand-rolled Passport.js strategies | better-auth (MFA, sessions, SAML, 30+ OAuth, Drizzle adapter) |
 | HTTP framework | NestJS 11 (keep) | NestJS 11 (keep) |
 | Database | PostgreSQL (keep) | PostgreSQL (keep) |
 | ABAC | CASL @casl/ability (keep) | CASL @casl/ability (keep) |
@@ -198,7 +198,7 @@ Track 4 (packaging) is fully independent — it consumes releases, doesn't affec
 3. **Drizzle + Zod** for full-stack type safety — one definition flows database to form
 4. **Keep NestJS** — framework is solid, ORM/auth layers are the problems
 5. **Keep CASL** — better-auth's RBAC doesn't replace attribute-based access control
-6. **Modernize Passport.js** (not replace with better-auth) — Sequelize adapter gap, LDAP gap
+6. **Migrate to better-auth** — Sequelize blocker removed by Drizzle migration. LDAP via community plugin (enhance as needed). Gains: MFA, sessions, password reset, SAML, 30+ OAuth providers as plugins.
 7. **ECharts** (not ApexCharts) — aligns with Issue #210 plan, vitify-next reference
 8. **Pinia Composition API style** — direct state mutation, eliminates vuex-module-decorators
 9. **VeeValidate 4 + @vee-validate/zod** — shared Zod schemas for form validation

@@ -124,7 +124,7 @@ Research from 6 parallel agents: auth system, database schema, RBAC/ABAC, API ro
 3. **No per-user JWT secret equivalent** — fundamentally different session model
 
 ### Recommendation
-Do NOT migrate to better-auth with Sequelize. If migrating ORM to Drizzle, better-auth becomes viable but still has LDAP gap. More practical: modernize Passport.js (add 2FA via otplib, add refresh tokens, fix security issues).
+DECISION: Migrate to better-auth. Sequelize blocker removed by Drizzle migration. LDAP via community plugin (enhance as needed for Heimdall's SSL/TLS/filter config). Gains: MFA, session management, password reset, SAML, 30+ OAuth providers, rate limiting, account lockout — all as plugins instead of hand-rolled code.
 
 ## Drizzle + Zod Stack Decision
 

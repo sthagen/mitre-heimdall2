@@ -220,17 +220,18 @@ All Vuetify template changes, ECharts migration, component conversion happen DUR
   - Splunk: SplunkReader, AuthStep, FileList
   - DatabaseReader
 
-### Track 2: Auth Security Improvements
-- [ ] `izw.5`: 2FA via otplib (TOTP + backup codes)
-  - New columns: totpSecret, totpEnabled, backupCodes
-  - Setup/verify/disable endpoints
-  - Modified login flow for 2FA challenge
-- [ ] `izw.6`: Refresh token rotation + session management
-  - Access token: 15 min, refresh token: 7 days
-  - New Sessions table with device/IP tracking
-  - List/revoke individual sessions
-  - Failed login counter + account lockout
-  - Rate limiting on ALL auth endpoints
+### Track 2: better-auth Migration + Enterprise Auth
+- [ ] `izw.16`: Migrate Passport.js → better-auth (with Drizzle adapter)
+  - Replace 9 strategy files + 6 guard files with better-auth
+  - MFA/2FA via better-auth plugin (replaces izw.5)
+  - Session management via better-auth (replaces izw.6)
+  - Password reset flow via better-auth plugin
+  - Rate limiting + account lockout via better-auth
+  - Verify LDAP works via community plugin
+  - Verify OIDC external group sync works
+- [ ] `izw.17`: Add SAML 2.0 support via better-auth SSO plugin
+- [ ] `izw.18`: Add CAC/PIV/X.509 client certificate auth (P2)
+- [ ] `izw.19`: Add Kerberos/SPNEGO for Windows integrated auth (P3)
 - [ ] `izw.15`: Fix evaluation pagination hack (20x over-fetch)
 
 ---
@@ -343,7 +344,7 @@ Indexes:
 | 4 | Zod (not Valibot/Typebox) | Ecosystem support: drizzle-zod, nestjs-zod, @vee-validate/zod, VeeValidate 4 |
 | 5 | Keep NestJS | Framework is solid; ORM/auth/validation layers are the problems |
 | 6 | Keep CASL | better-auth's RBAC doesn't replace attribute-based access control |
-| 7 | Modernize Passport.js (not replace) | better-auth has Sequelize/LDAP hard blockers |
+| 7 | Migrate to better-auth | Sequelize blocker removed by Drizzle. Gains: MFA, sessions, SAML, 30+ OAuth, password reset as plugins |
 | 8 | ECharts (not ApexCharts) | Aligns with Issue #210 plan, vitify-next reference, D3 treemap replacement |
 | 9 | Pinia Composition API style | Direct state mutation, eliminates vuex-module-decorators |
 | 10 | VeeValidate 4 + @vee-validate/zod | Shared Zod schemas for form validation, replaces vuelidate 0.7 |
