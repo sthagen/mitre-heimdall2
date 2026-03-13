@@ -49,7 +49,6 @@ export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
     const sslConfig = LDAPStrategy.getSSLConfig(configService);
     super(
       {
-        passReqToCallback: true,
         server: {
           url: `${sslConfig ? 'ldaps' : 'ldap'}://${configService.get(
             'LDAP_HOST'
@@ -60,7 +59,6 @@ export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
           searchFilter:
             configService.get('LDAP_SEARCHFILTER') ||
             '(sAMAccountName={{username}})',
-          passReqToCallback: true,
           ...(sslConfig && {
             tlsOptions: {
               rejectUnauthorized: sslConfig.rejectUnauthorized,
@@ -70,7 +68,7 @@ export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
         }
       },
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      async (req: Request, user: unknown, done: any) => {
+      async (user: unknown, done: any) => {
         const {firstName, lastName} = this.authnService.splitName(
           _.get(user, configService.get('LDAP_NAMEFIELD') || 'name')
         );
@@ -78,13 +76,13 @@ export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
           user,
           configService.get('LDAP_MAILFIELD') || 'mail'
         );
-        req.user = this.authnService.validateOrCreateUser(
+        const validatedUser = this.authnService.validateOrCreateUser(
           Array.isArray(email) ? email[0] : email,
           firstName,
           lastName,
           'ldap'
         );
-        return done(null, req.user);
+        return done(null, validatedUser);
       }
     );
   }
