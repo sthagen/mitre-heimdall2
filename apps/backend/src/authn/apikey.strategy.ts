@@ -6,28 +6,26 @@ import {User} from '../users/user.model';
 import {AuthnService} from './authn.service';
 
 @Injectable()
-export class APIKeyStrategy extends PassportStrategy(
-  HeaderAPIKeyStrategy,
-  'apikey'
-) {
+export class APIKeyStrategy extends PassportStrategy(HeaderAPIKeyStrategy, 'apikey') {
   constructor(private readonly authnService: AuthnService) {
     super(
       {header: 'Authorization', prefix: 'Api-Key '},
       false,
-      async (
-        apikey: string,
-        done: (
-          exception: null | ForbiddenException,
-          user: Promise<User | Group | null> | boolean
-        ) => unknown
-      ) => {
-        const auth = this.authnService.validateApiKey(apikey);
-        if (await auth) {
-          return done(null, auth);
-        } else {
-          return done(new ForbiddenException('Bad Api-Key'), auth);
-        }
-      }
     );
+  }
+
+  async validate(
+    apikey: string,
+    done: (
+      exception: null | ForbiddenException,
+      user: Promise<User | Group | null> | boolean
+    ) => unknown
+  ) {
+    const auth = this.authnService.validateApiKey(apikey);
+    if (await auth) {
+      return done(null, auth);
+    } else {
+      return done(new ForbiddenException('Bad Api-Key'), auth);
+    }
   }
 }
