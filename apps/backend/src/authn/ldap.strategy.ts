@@ -1,6 +1,5 @@
 import {Injectable} from '@nestjs/common';
 import {PassportStrategy} from '@nestjs/passport';
-import {Request} from 'express';
 import * as fs from 'fs';
 import * as _ from 'lodash';
 import Strategy from 'passport-ldapauth';
