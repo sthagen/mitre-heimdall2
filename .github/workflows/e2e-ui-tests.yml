@@ -65,7 +65,7 @@ jobs:
           NODE_ENV: production # want to install dev deps like cypress but test against the prod build of Heimdall
 
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           start: yarn start, yarn run cypress-test mock-json, yarn run cypress-test mock-openid
           wait-on: 'http://127.0.0.1:3000, http://127.0.0.1:3001'
