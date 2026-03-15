@@ -70,11 +70,11 @@ export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async validate(user: unknown, done: any) {
     const {firstName, lastName} = this.authnService.splitName(
-      _.get(user, configService.get('LDAP_NAMEFIELD') || 'name')
+      _.get(user, this.configService.get('LDAP_NAMEFIELD') || 'name')
     );
     const email: string = _.get(
       user,
-      configService.get('LDAP_MAILFIELD') || 'mail'
+      this.configService.get('LDAP_MAILFIELD') || 'mail'
     );
     const validatedUser = this.authnService.validateOrCreateUser(
       Array.isArray(email) ? email[0] : email,
