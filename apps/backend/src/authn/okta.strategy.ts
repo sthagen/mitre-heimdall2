@@ -19,7 +19,8 @@ type Profile = {
 };
 
 @Injectable()
-export class OktaStrategy extends PassportStrategy(Strategy, 'okta') {
+//eslint-disable-next-line @typescript-eslint/no-explicit-any -- Passport v11 changed their types and many 3rd party strategies are not compatible with the types despite actually still working just fine
+export class OktaStrategy extends PassportStrategy(Strategy as any, 'okta') {
   private readonly line = '_______________________________________________\n';
   public loggingTimeFormat = 'MMM-DD-YYYY HH:mm:ss Z';
   public logger = winston.createLogger({
@@ -39,35 +40,47 @@ export class OktaStrategy extends PassportStrategy(Strategy, 'okta') {
     private readonly authnService: AuthnService,
     private readonly configService: ConfigService
   ) {
-    super({
-      issuer:
-        configService.get('OKTA_ISSUER_URL') ||
-        `https://${configService.get('OKTA_DOMAIN')}` ||
-        'disabled',
-      authorizationURL:
-        configService.get('OKTA_AUTHORIZATION_URL') ||
-        `https://${configService.get('OKTA_DOMAIN') || 'disabled'}/oauth2/v1/authorize`,
-      tokenURL:
-        configService.get('OKTA_TOKEN_URL') ||
-        `https://${configService.get('OKTA_DOMAIN') || 'disabled'}/oauth2/v1/token`,
-      userInfoURL:
-        configService.get('OKTA_USER_INFO_URL') ||
-        `https://${configService.get('OKTA_DOMAIN') || 'disabled'}/oauth2/v1/userinfo`,
-      clientID: configService.get('OKTA_CLIENTID') || 'disabled',
-      clientSecret: configService.get('OKTA_CLIENTSECRET') || 'disabled',
-      callbackURL: `${configService.get('EXTERNAL_URL')}/authn/okta_callback`,
-      scope: ['openid', 'email', 'profile'],
-      skipUserProfile: false,
-      proxy:
-        configService.get('OKTA_USE_HTTPS_PROXY') === 'true' ? true : undefined,
-      agent:
-        configService.get('OKTA_USE_HTTPS_PROXY') === 'true'
-          ? new HttpsProxyAgent(configService.get('HTTPS_PROXY') ?? '')
-          : undefined
-    });
+    super(
+      {
+        issuer:
+          configService.get('OKTA_ISSUER_URL') ||
+          `https://${configService.get('OKTA_DOMAIN')}` ||
+          'disabled',
+        authorizationURL:
+          configService.get('OKTA_AUTHORIZATION_URL') ||
+          `https://${configService.get('OKTA_DOMAIN') || 'disabled'}/oauth2/v1/authorize`,
+        tokenURL:
+          configService.get('OKTA_TOKEN_URL') ||
+          `https://${configService.get('OKTA_DOMAIN') || 'disabled'}/oauth2/v1/token`,
+        userInfoURL:
+          configService.get('OKTA_USER_INFO_URL') ||
+          `https://${configService.get('OKTA_DOMAIN') || 'disabled'}/oauth2/v1/userinfo`,
+        clientID: configService.get('OKTA_CLIENTID') || 'disabled',
+        clientSecret: configService.get('OKTA_CLIENTSECRET') || 'disabled',
+        callbackURL: `${configService.get('EXTERNAL_URL')}/authn/okta_callback`,
+        scope: ['openid', 'email', 'profile'],
+        skipUserProfile: false,
+        proxy:
+          configService.get('OKTA_USE_HTTPS_PROXY') === 'true'
+            ? true
+            : undefined,
+        agent:
+          configService.get('OKTA_USE_HTTPS_PROXY') === 'true'
+            ? new HttpsProxyAgent(configService.get('HTTPS_PROXY') ?? '')
+            : undefined
+      },
+      // Okta has no concept of a 'verified' email - the account has to have an email address associated with it - which is why we can use the 3-arity function since we don't need access to the underlying JSON response
+      async (
+        _issuer: string,
+        profile: Profile,
+        //eslint-disable-next-line @typescript-eslint/no-explicit-any
+        done: any
+      ) => {
+        return this.validate(_issuer, profile, done);
+      }
+    );
   }
 
-  // Okta has no concept of a 'verified' email - the account has to have an email address associated with it - which is why we can use the 3-arity function since we don't need access to the underlying JSON response
   async validate(
     _issuer: string,
     profile: Profile,

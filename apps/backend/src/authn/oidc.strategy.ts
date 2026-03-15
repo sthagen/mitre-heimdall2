@@ -23,7 +23,8 @@ interface OIDCProfile {
 }
 
 @Injectable()
-export class OidcStrategy extends PassportStrategy(Strategy, 'oidc') {
+//eslint-disable-next-line @typescript-eslint/no-explicit-any -- Passport v11 changed their types and many 3rd party strategies are not compatible with the types despite actually still working just fine
+export class OidcStrategy extends PassportStrategy(Strategy as any, 'oidc') {
   private readonly line = '_______________________________________________\n';
   public loggingTimeFormat = 'MMM-DD-YYYY HH:mm:ss Z';
   public logger = winston.createLogger({
@@ -44,33 +45,61 @@ export class OidcStrategy extends PassportStrategy(Strategy, 'oidc') {
     private readonly configService: ConfigService,
     private readonly groupsService: GroupsService
   ) {
-    super({
-      issuer: configService.get('OIDC_ISSUER') || 'disabled',
-      authorizationURL:
-        configService.get('OIDC_AUTHORIZATION_URL') || 'disabled',
-      tokenURL: configService.get('OIDC_TOKEN_URL') || 'disabled',
-      userInfoURL: configService.get('OIDC_USER_INFO_URL') || 'disabled',
-      clientID: configService.get('OIDC_CLIENTID') || 'disabled',
-      clientSecret: configService.get('OIDC_CLIENT_SECRET') || 'disabled',
-      callbackURL: `${configService.get('EXTERNAL_URL')}/authn/oidc_callback`,
-      pkce:
-        configService.get('OIDC_USES_PKCE_S256') === 'true'
-          ? 'S256'
-          : configService.get('OIDC_USES_PKCE_PLAIN') === 'true'
-            ? 'plain'
+    super(
+      {
+        issuer: configService.get('OIDC_ISSUER') || 'disabled',
+        authorizationURL:
+          configService.get('OIDC_AUTHORIZATION_URL') || 'disabled',
+        tokenURL: configService.get('OIDC_TOKEN_URL') || 'disabled',
+        userInfoURL: configService.get('OIDC_USER_INFO_URL') || 'disabled',
+        clientID: configService.get('OIDC_CLIENTID') || 'disabled',
+        clientSecret: configService.get('OIDC_CLIENT_SECRET') || 'disabled',
+        callbackURL: `${configService.get('EXTERNAL_URL')}/authn/oidc_callback`,
+        pkce:
+          configService.get('OIDC_USES_PKCE_S256') === 'true'
+            ? 'S256'
+            : configService.get('OIDC_USES_PKCE_PLAIN') === 'true'
+              ? 'plain'
+              : undefined,
+        scope: ['openid', 'email', 'profile'],
+        skipUserProfile: false,
+        proxy:
+          configService.get('OIDC_USE_HTTPS_PROXY') === 'true'
+            ? true
             : undefined,
-      scope: ['openid', 'email', 'profile'],
-      skipUserProfile: false,
-      proxy:
-        configService.get('OIDC_USE_HTTPS_PROXY') === 'true' ? true : undefined,
-      agent:
-        configService.get('OIDC_USE_HTTPS_PROXY') === 'true'
-          ? new HttpsProxyAgent(configService.get('HTTPS_PROXY') ?? '')
-          : undefined
-    });
+        agent:
+          configService.get('OIDC_USE_HTTPS_PROXY') === 'true'
+            ? new HttpsProxyAgent(configService.get('HTTPS_PROXY') ?? '')
+            : undefined
+      },
+      // using the 9-arity function so that we can access the underlying JSON response and extract the 'email_verified' attribute
+      async (
+        _issuer: string,
+        uiProfile: OIDCProfile,
+        _idProfile: object,
+        _context: object,
+        _idToken: string,
+        _accessToken: string,
+        _refreshToken: string,
+        _params: object,
+        //eslint-disable-next-line @typescript-eslint/no-explicit-any
+        done: any
+      ) => {
+        return this.validate(
+          _issuer,
+          uiProfile,
+          _idProfile,
+          _context,
+          _idToken,
+          _accessToken,
+          _refreshToken,
+          _params,
+          done
+        );
+      }
+    );
   }
 
-  // using the 9-arity function so that we can access the underlying JSON response and extract the 'email_verified' attribute
   async validate(
     _issuer: string,
     uiProfile: OIDCProfile,
