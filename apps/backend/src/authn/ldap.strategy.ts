@@ -9,7 +9,8 @@ import {AuthnService} from './authn.service';
 @Injectable()
 export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
   static getSSLConfig(configService: ConfigService) {
-    const sslEnabled = (configService.get('LDAP_SSL') ?? '').toLowerCase() === 'true';
+    const sslEnabled =
+      (configService.get('LDAP_SSL') ?? '').toLowerCase() === 'true';
     if (!sslEnabled) {
       return false;
     }
@@ -31,7 +32,8 @@ export class LDAPStrategy extends PassportStrategy(Strategy, 'ldap') {
       }
     }
 
-    const sslInsecure = (configService.get('LDAP_SSL_INSECURE') ?? '').toLowerCase() === 'true';
+    const sslInsecure =
+      (configService.get('LDAP_SSL_INSECURE') ?? '').toLowerCase() === 'true';
 
     return {
       rejectUnauthorized: !sslInsecure,
