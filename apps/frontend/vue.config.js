@@ -59,6 +59,9 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
+      new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
+        resource.request = resource.request.replace(/^node:/, "");
+      }),
       new webpack.DefinePlugin({
         'process.env.PACKAGE_VERSION': `"${version}"`,
         'process.env.DESCRIPTION': `"${description}"`,
