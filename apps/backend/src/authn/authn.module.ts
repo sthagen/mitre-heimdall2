@@ -1,4 +1,4 @@
-import type { Agent } from 'http';
+import type {Agent} from 'http';
 import {Module} from '@nestjs/common';
 import {PassportModule} from '@nestjs/passport';
 import {AuthnController} from './authn.controller';
@@ -22,7 +22,8 @@ import {OidcStrategy} from './oidc.strategy';
 import {OktaStrategy} from './okta.strategy';
 
 async function buildHttpsProxyAgent(proxyUrl: string): Promise<Agent> {
-  const { HttpsProxyAgent } = (await import('https-proxy-agent')) as typeof import('https-proxy-agent');
+  const {HttpsProxyAgent} =
+    (await import('https-proxy-agent')) as typeof import('https-proxy-agent');
   return new HttpsProxyAgent(proxyUrl);
 }
 
@@ -47,14 +48,33 @@ async function buildHttpsProxyAgent(proxyUrl: string): Promise<Agent> {
     ApiKeyService,
     {
       provide: OidcStrategy,
-      useFactory: async (authn: AuthnService, config: ConfigService, groups: GroupsService) => new OidcStrategy(authn, config, groups, config.get('OIDC_USE_HTTPS_PROXY') === 'true' ? await buildHttpsProxyAgent(config.get('HTTPS_PROXY') ?? '') : undefined),
+      useFactory: async (
+        authn: AuthnService,
+        config: ConfigService,
+        groups: GroupsService
+      ) =>
+        new OidcStrategy(
+          authn,
+          config,
+          groups,
+          config.get('OIDC_USE_HTTPS_PROXY') === 'true'
+            ? await buildHttpsProxyAgent(config.get('HTTPS_PROXY') ?? '')
+            : undefined
+        ),
       inject: [AuthnService, ConfigService, GroupsService]
     },
     {
       provide: OktaStrategy,
-      useFactory: async (authn: AuthnService, config: ConfigService) => new OktaStrategy(authn, config, config.get('OKTA_USE_HTTPS_PROXY') === 'true' ? await buildHttpsProxyAgent(config.get('HTTPS_PROXY') ?? '') : undefined),
+      useFactory: async (authn: AuthnService, config: ConfigService) =>
+        new OktaStrategy(
+          authn,
+          config,
+          config.get('OKTA_USE_HTTPS_PROXY') === 'true'
+            ? await buildHttpsProxyAgent(config.get('HTTPS_PROXY') ?? '')
+            : undefined
+        ),
       inject: [AuthnService, ConfigService]
-    },
+    }
   ],
   controllers: [AuthnController]
 })

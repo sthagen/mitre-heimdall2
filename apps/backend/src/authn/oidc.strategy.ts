@@ -1,4 +1,4 @@
-import type { Agent } from 'http';
+import type {Agent} from 'http';
 import {Injectable, UnauthorizedException} from '@nestjs/common';
 import {PassportStrategy} from '@nestjs/passport';
 import {Strategy} from '@govtechsg/passport-openidconnect';
@@ -44,7 +44,7 @@ export class OidcStrategy extends PassportStrategy(Strategy as any, 'oidc') {
     private readonly authnService: AuthnService,
     private readonly configService: ConfigService,
     private readonly groupsService: GroupsService,
-    private readonly httpsAgent?: Agent,
+    private readonly httpsAgent?: Agent
   ) {
     super(
       {

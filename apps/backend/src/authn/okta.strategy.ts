@@ -1,4 +1,4 @@
-import type { Agent } from 'http';
+import type {Agent} from 'http';
 import {Injectable, UnauthorizedException} from '@nestjs/common';
 import {PassportStrategy} from '@nestjs/passport';
 import {Strategy} from '@govtechsg/passport-openidconnect';
@@ -39,7 +39,7 @@ export class OktaStrategy extends PassportStrategy(Strategy as any, 'okta') {
   constructor(
     private readonly authnService: AuthnService,
     private readonly configService: ConfigService,
-    private readonly httpsAgent?: Agent,
+    private readonly httpsAgent?: Agent
   ) {
     super(
       {
