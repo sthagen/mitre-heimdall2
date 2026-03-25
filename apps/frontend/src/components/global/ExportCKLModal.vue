@@ -296,6 +296,7 @@ import {
   ChecklistMetadata,
   StigMetadata,
   Assettype,
+  Result,
   Role,
   Techarea,
   validateChecklistMetadata
@@ -311,7 +312,6 @@ import {coerce} from 'semver';
 import {validationMixin} from 'vuelidate';
 import {or, CustomRule} from 'vuelidate/lib/validators';
 import ValidationProperties from 'vue/types/vue';
-import {Result} from '@mitre/hdf-converters/src/utils/result';
 
 type ExtendedEvaluationFile = (EvaluationFile | ProfileFile) &
   ChecklistMetadata & {
@@ -522,10 +522,11 @@ export default class ExportCKLModal extends Vue {
 
   splitReleaseInfo(info: string): string[] {
     const defaultReturn = ['', ''];
-    const pattern = /Release: (\d+)[^\r\n]*Date: (\d{1,2} \w{3} \d{4})/;
+    const pattern =
+      /Release: (?<release>\d+)\D+(?:\d.*?)?Date: (?<date>\d{1,2} \w{3} \d{4})/v;
     const matches = RegExp(pattern).exec(info);
-    if (matches) {
-      return [matches[1], matches[2]];
+    if (matches && matches.groups) {
+      return [matches.groups.release, matches.groups.date];
     }
     return defaultReturn;
   }
@@ -621,7 +622,7 @@ export default class ExportCKLModal extends Vue {
       // Get the name value up to the index, replace dashes with spaces
       newName = name.substring(0, index).split('-').join(' ');
       // Convert the first letter of each word into uppercase
-      newName = newName.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word) {
+      newName = newName.replaceAll(/^\w|[A-Z]|\b\w/gv, function (word) {
         return word.toUpperCase();
       });
       newName = newName + 'Security Technical Implementation Guide';

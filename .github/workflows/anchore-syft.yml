@@ -24,10 +24,10 @@ jobs:
   Anchore-Build-Scan:
     permissions:
       contents: write # required to upload to the Dependency submission API
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:24.04
     steps:
     - name: Checkout the code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag localbuild/testimage:latest
     - name: Scan the image and upload dependency results

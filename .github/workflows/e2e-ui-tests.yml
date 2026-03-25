@@ -6,9 +6,12 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  contents: read
+
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       CYPRESS_TESTING: true
       NODE_ENV: test
@@ -31,13 +34,14 @@ jobs:
           - 8089:8089
         env:
           SPLUNK_START_ARGS: --accept-license
+          SPLUNK_GENERAL_TERMS: --accept-sgt-current-at-splunk-com
           SPLUNK_PASSWORD: Valid_password!
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
           check-latest: true
@@ -61,14 +65,14 @@ jobs:
           NODE_ENV: production # want to install dev deps like cypress but test against the prod build of Heimdall
 
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           start: yarn start, yarn run cypress-test mock-json, yarn run cypress-test mock-openid
           wait-on: 'http://127.0.0.1:3000, http://127.0.0.1:3001'
 
       - name: Upload test screenshots and videos
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cypress-recording
           path: |

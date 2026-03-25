@@ -3,14 +3,15 @@ import {Filter, FilteredDataModule} from '@/store/data_filters';
 import Results from '@/views/Results.vue';
 import {shallowMount, Wrapper} from '@vue/test-utils';
 import {ContextualizedControl} from 'inspecjs';
-import 'jest';
+import {beforeEach, describe, expect, it} from 'vitest';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import {
   expectedCount,
   loadAll,
   loadSample,
-  removeAllFiles
+  removeAllFiles,
+  DataLoadApproach
 } from '../util/testingUtils';
 
 interface ListElt {
@@ -40,11 +41,12 @@ const wrapper: Wrapper<Vue> = shallowMount(Results, {
   propsData: {}
 });
 
-loadSample('Acme Overlay Example');
-
 describe('Datatable', () => {
-  it('displays correct number of controls with many files', () => {
+  beforeEach(() => {
     removeAllFiles();
+  });
+
+  it('displays correct number of controls with many files', () => {
     loadAll();
     controlTableWrapper = shallowMount(ControlTable, {
       vuetify,
@@ -71,7 +73,44 @@ describe('Datatable', () => {
     ).toBe(expected);
   });
 
+  it('displays correct number of controls with many files generated from a single sample file while using the loadFile method', () => {
+    loadSample('Conveyor Sample', DataLoadApproach.File);
+    controlTableWrapper = shallowMount(ControlTable, {
+      vuetify,
+      mocks: {
+        $router
+      },
+      propsData: {
+        filter: (wrapper.vm as Vue & {all_filter: Filter}).all_filter
+      }
+    });
+    const expected =
+      expectedCount('passed') +
+      expectedCount('failed') +
+      expectedCount('notReviewed') +
+      expectedCount('notApplicable') +
+      expectedCount('profileError');
+    expect(
+      (
+        controlTableWrapper.vm as Vue & {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          items: Array<any>;
+        }
+      ).items.length
+    ).toBe(expected);
+  });
+
   it('control row and table data is correct', () => {
+    loadAll();
+    controlTableWrapper = shallowMount(ControlTable, {
+      vuetify,
+      mocks: {
+        $router
+      },
+      propsData: {
+        filter: (wrapper.vm as Vue & {all_filter: Filter}).all_filter
+      }
+    });
     expect(
       (
         controlTableWrapper.vm as Vue & {
@@ -92,7 +131,6 @@ describe('Datatable', () => {
   });
 
   it('it can properly filter overridden results', () => {
-    removeAllFiles();
     loadSample('Small Profile With Severity Overrides');
     controlTableWrapper = shallowMount(ControlTable, {
       vuetify,

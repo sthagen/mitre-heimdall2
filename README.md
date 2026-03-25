@@ -316,6 +316,10 @@ If you would like to change Heimdall to your needs, you can use Heimdall's 'Deve
 
 1. Install system dependencies with your system's package manager. NodeJS is required and can be installed via your system's package manager, or an alternative method if desired. Documented below is the installation via your system's package manager.
 
+   Oracle Linux:
+
+   - For Oracle Linux production installs, follow the [Oracle Linux Production Install guide](https://github.com/mitre/heimdall2/wiki/Oracle-Linux-Production-Install)
+
    Ubuntu:
 
    - See the [Debian and Ubuntu based distributions](https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions) provided by NodeSource for details on supported Node.js versions and additional installation information
@@ -533,6 +537,10 @@ The first command will start an instance of Heimdall Server and exposes addition
 
 > [!NOTE] 
 > When running the tests locally, tests that integrate with external services such as LDAP or Splunk will fail without having that external service running and configured. If these failures occur locally and local development does not impact the code relevant to those tests, you may consider permitting these failing tests locally and check that they pass in the pipeline in lieu of standing up local services only for testing purposes.
+
+#### Building the Heimdall Docker containers locally
+
+See the [wiki](https://github.com/mitre/heimdall2/wiki/Docker-Bake).
 
 ### Creating a Release
 

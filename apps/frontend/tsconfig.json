@@ -10,11 +10,11 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
-    "types": ["jest", "chai", "vuetify", "node"],
+    "types": ["vuetify", "node"],
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["ES2019", "dom", "dom.iterable", "scripthost"]
+    "lib": ["ES2021", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "src/**/*.ts",
