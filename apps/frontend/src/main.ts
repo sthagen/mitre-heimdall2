@@ -1,9 +1,3 @@
-import App from '@/App.vue';
-import vuetify from '@/plugins/vuetify';
-import router from '@/router';
-import {ServerModule} from '@/store/server';
-import {SnackbarModule} from '@/store/snackbar';
-import store from '@/store/store';
 import axios from 'axios';
 import 'core-js/stable';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
@@ -11,6 +5,12 @@ import Vue from 'vue';
 import VueCookies from 'vue-cookies';
 import Vuetify from 'vuetify/lib';
 import {Resize} from 'vuetify/lib/directives';
+import App from '@/App.vue';
+import vuetify from '@/plugins/vuetify';
+import router from '@/router';
+import {ServerModule} from '@/store/server';
+import {SnackbarModule} from '@/store/snackbar';
+import store from '@/store/store';
 
 Vue.config.productionTip = false;
 
@@ -29,9 +29,20 @@ new Vue({
     axios.interceptors.response.use(
       (response) => response, // simply return the response
       (error) => {
+        let origin = '';
+        try {
+          origin = new URL(error?.config?.url, globalThis.location.origin)
+            .origin;
+        } catch {
+          origin = '';
+        }
         // If there is no backend token then it is safe to assume this request
         // originated from the login page and should not perform the logout action.
-        if (ServerModule.token !== '' && error?.response?.status === 401) {
+        if (
+          origin === ServerModule.externalUrl &&
+          ServerModule.token !== '' &&
+          error?.response?.status === 401
+        ) {
           // if we catch a 401 error
           ServerModule.Logout();
         } else {

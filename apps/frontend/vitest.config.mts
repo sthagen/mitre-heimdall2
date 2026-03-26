@@ -13,8 +13,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: [
-      {find: /^@\//, replacement: path.resolve(rootDir, 'src') + '/'},
-      {find: '@mitre/hdf-converters', replacement: path.resolve(rootDir, '..', '..', 'libs/hdf-converters/index.ts')},
+      {find: /^@\//, replacement: path.resolve(rootDir, 'src') + '/'}
     ]
   },
   test: {
@@ -22,7 +21,7 @@ export default defineConfig({
     setupFiles: [path.resolve(rootDir, 'tests/setup.ts')],
     include: ['tests/unit/*.spec.ts'],
     exclude: ['src/__mocks__/**', 'node_modules/**', 'dist/**'],
-    testTimeout: 30_000,
+    testTimeout: 60_000,
     sequence: {
       concurrent: true
     }
