@@ -279,10 +279,10 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-config-service@3.1016.0":
-  version "3.1016.0"
-  resolved "https://registry.npmjs.org/@aws-sdk/client-config-service/-/client-config-service-3.1016.0.tgz#0d437f08dfea57b1b14f1aca7b9b3a5e36e22775"
-  integrity sha512-FAIMbYs1YcFH5WZepiej9UN18ArqLndSsNGb5RUCUBghRmFgCzwW4O31SOzXY3fQN1fpZWLIEIhsQjjYIQsoMA==
+"@aws-sdk/client-config-service@3.1017.0":
+  version "3.1017.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-config-service/-/client-config-service-3.1017.0.tgz#cc0b5f2af4769d1f985aa63821cca2c553c93dbb"
+  integrity sha512-bIjlyXtMH35xH+cXR50Sl1nfUoe9bPfJ1ofjoy3uzgobKmDS7o6zDLLe9iSO8ujdimddYTyHD5GH7TXbxrLVrA==
   dependencies:
     "@aws-crypto/sha256-browser" "5.2.0"
     "@aws-crypto/sha256-js" "5.2.0"
@@ -9610,7 +9610,7 @@ fast-diff@^1.1.2:
 
 fast-glob@3.3.3, fast-glob@^3.2.12, fast-glob@^3.2.7, fast-glob@^3.2.9:
   version "3.3.3"
-  resolved "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz#d06d585ce8dba90a16b0505c543c3ccfb3aeb818"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.3.3.tgz#d06d585ce8dba90a16b0505c543c3ccfb3aeb818"
   integrity sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==
   dependencies:
     "@nodelib/fs.stat" "^2.0.2"
