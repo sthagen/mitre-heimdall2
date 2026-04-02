@@ -67,7 +67,7 @@
     "file-saver": "^2.0.2",
     "inspecjs": "^2.12.6",
     "jszip": "^3.10.1",
-    "lodash": "4.17.23",
+    "lodash": "4.18.1",
     "lru-cache": "^11.0.2",
     "luxon": "^3.0.1",
     "node-polyfill-webpack-plugin": "^4.1.0",
