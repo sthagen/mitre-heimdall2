@@ -1,6 +1,6 @@
 {
   "name": "@heimdall/password-complexity",
-  "version": "2.12.6",
+  "version": "2.13.0",
   "license": "Apache-2.0",
   "description": "Common utilities for checking password complexity",
   "private": true,
