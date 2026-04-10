@@ -2,6 +2,7 @@ v2.13.1
 
 ## What's New
 
+- Pin webpack @Amndeep7 (#7951)
 - Update eslint version and configuration @Amndeep7 (#7919)
 - Dep updates 2026 04 10 @Amndeep7 (#7950)
 - BridgeCrew Checkov to HDF Mapper Added @clem-field (#7883)
@@ -20,7 +21,6 @@ v2.13.1
 - Vitest @Amndeep7 (#7076)
 - Multi platform build @wdower (#7548)
 - upgrade versions @Amndeep7 (#7649)
-- Pin webpack @Amndeep7
 
 ## Dependency Updates
 
