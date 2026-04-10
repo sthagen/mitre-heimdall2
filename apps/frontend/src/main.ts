@@ -44,7 +44,7 @@ new Vue({
         } else {
           SnackbarModule.HTTPFailure(error);
         }
-        return Promise.reject(error); // reject the Promise, with the error as the reason
+        return Promise.reject(error); // reject the Promise with the error as the reason
       }
     );
   },
