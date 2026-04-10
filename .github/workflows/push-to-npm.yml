@@ -3,6 +3,7 @@ name: Push Heimdall-Lite to NPM and GitHub Packages and Push InspecJs to NPM
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 permissions:
   id-token: write # required for trusted publishing's use of OIDC
