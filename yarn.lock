@@ -19429,10 +19429,10 @@ vuetify@^2.3.9:
   resolved "https://registry.npmjs.org/vuetify/-/vuetify-2.7.2.tgz#b2b687e519257d789a63b87c418f98099f38990f"
   integrity sha512-qr04ww7uzAPQbpk751x4fSdjsJ+zREzjQ/rBlcQGuWS6MIMFMXcXcwvp4+/tnGsULZxPMWfQ0kmZmg5Yc/XzgQ==
 
-vuex-module-decorators@^1.0.1:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/vuex-module-decorators/-/vuex-module-decorators-1.2.0.tgz#efb9690ec8856041ce4e9762bc9b51dc264cd359"
-  integrity sha512-3lHp75qVgrNXUpFKs4J4eRnrxjY3BYUkHwR+ZKvvIycw/7tDwlL0RPuiYLwrHEUBTvJePSZaehZJ0BMTw1/ugQ==
+vuex-module-decorators@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-2.0.0.tgz#46fa63cc38496cf5655853a3193e53c1f2557ebc"
+  integrity sha512-awfjlJR9PlX2tDNzRk5fUnksO4TC5Z93Q3ZycvROCiLId7MZ1GdY4sHpEvPqm02UZ8jF+BkuyN5ezghOAk3zeQ==
 
 vuex@^3.1.2:
   version "3.6.2"
