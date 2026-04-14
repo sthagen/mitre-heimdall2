@@ -16740,9 +16740,9 @@ retry-as-promised@^7.0.4:
   integrity sha512-hMD7odLOt3LkTjcif8aRZqi/hybjpLNgSk5oF5FCowfCjok6LukpN2bDX7R5wDmbgBQFn7YoBxSagmtXHaJYJw==
 
 retry-axios@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/retry-axios/-/retry-axios-4.0.2.tgz#74a1b1e70dd326f16f2783081f2f2cdb191b5675"
-  integrity sha512-7cn3WwjP+rmvrG5kaD15/1Nd/w85LBAxL3AuqAQo18WkVvn6+I8stAH8XuZp4oZlrF1iOHzDEfxG1RO2pcH0cQ==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/retry-axios/-/retry-axios-4.0.3.tgz#bd2f9007eaa8892eefb57ad20802163e22d8184a"
+  integrity sha512-rs4HXqxwWKP7bHIgo02ijrSwS9GPzXA0i2vhN7x2Qp2Gn/SZPuQkcA5qqouR+8VJrjT7DrzZpU8FTFkOA7AFXQ==
 
 retry@0.13.1, retry@^0.13.1:
   version "0.13.1"
