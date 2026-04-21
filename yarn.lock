@@ -3679,9 +3679,9 @@
     tslib "^2.6.2"
 
 "@smithy/node-http-handler@^4.0.0", "@smithy/node-http-handler@^4.5.3":
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/@smithy/node-http-handler/-/node-http-handler-4.5.3.tgz#a0f7263fb8ecb0fd5dea03f770ec99d3a4c4efdc"
-  integrity sha512-lc5jFL++x17sPhIwMWJ3YOnqmSjw/2Po6VLDlUIXvxVWRuJwRXnJ4jOBBLB0cfI5BB5ehIl02Fxr1PDvk/kxDw==
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@smithy/node-http-handler/-/node-http-handler-4.6.0.tgz#041d7ba045296465f988041deddeb3e297f0697d"
+  integrity sha512-P734cAoTFtuGfWa/R3jgBnGlURt2w9bYEBwQNMKf58sRM9RShirB2mKwLsVP+jlG/wxpCu8abv8NxdUts8tdLA==
   dependencies:
     "@smithy/protocol-http" "^5.3.14"
     "@smithy/querystring-builder" "^4.2.14"
