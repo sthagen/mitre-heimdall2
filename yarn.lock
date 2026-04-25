@@ -254,10 +254,10 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-config-service@3.1036.0":
-  version "3.1036.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-config-service/-/client-config-service-3.1036.0.tgz#f7c669b07e4a9baecf892e8abc3a4966d219a48b"
-  integrity sha512-VWu77XlWA4O18N/i7s+HUeLSgabbLfrPIXKOuszCVCP5SYDOH2VifvxZi71LKCwEA75Sm5D3Z61OoHbDtan4vQ==
+"@aws-sdk/client-config-service@3.1037.0":
+  version "3.1037.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-config-service/-/client-config-service-3.1037.0.tgz#065023e1d3a0dabad511ddd68b2f6b8f73485ade"
+  integrity sha512-9wyQkggmfzfJOQmwZ256GXhqYB+XOyDefUulmjEIRJReERotIZLOmK+ZJdGaejMCU7jVcUKJLStJhuxWV6hlqA==
   dependencies:
     "@aws-crypto/sha256-browser" "5.2.0"
     "@aws-crypto/sha256-js" "5.2.0"
