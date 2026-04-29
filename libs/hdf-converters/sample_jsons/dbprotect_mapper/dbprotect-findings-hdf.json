@@ -17909,11 +17909,11 @@
           },
           "refs": [],
           "source_location": {},
-          "title": "Default 'sa' account not present",
+          "title": "Default &#39;sa&#39; account not present",
           "id": "2814",
           "desc": "Task : Audit; Check Category : Improper Access Controls",
           "impact": 0.5,
-          "code": "{\n  \"Organization\": \"Sample Organization Server\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"HOST1\",\n  \"IP Address, Port, Instance\": \"192.168.1.200, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Sample scan report generation\",\n  \"Start Date\": \"2021-02-18 15:55\",\n  \"End Date\": {\n    \"nil\": \"true\"\n  },\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Check Category\": \"Improper Access Controls\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2814\",\n  \"Check\": \"Default 'sa' account not present\",\n  \"Details\": \"Account Name=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
+          "code": "{\n  \"Organization\": \"Sample Organization Server\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"HOST1\",\n  \"IP Address, Port, Instance\": \"192.168.1.200, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Sample scan report generation\",\n  \"Start Date\": \"2021-02-18 15:55\",\n  \"End Date\": {\n    \"nil\": \"true\"\n  },\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Check Category\": \"Improper Access Controls\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2814\",\n  \"Check\": \"Default &#39;sa&#39; account not present\",\n  \"Details\": \"Account Name=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
           "results": [
             {
               "status": "skipped",
@@ -18896,11 +18896,11 @@
           },
           "refs": [],
           "source_location": {},
-          "title": "'sa' account has not been disabled",
+          "title": "&#39;sa&#39; account has not been disabled",
           "id": "2745",
           "desc": "Task : Audit; Check Category : Misconfigurations",
           "impact": 0.5,
-          "code": "{\n  \"Organization\": \"Sample Organization Server\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"HOST1\",\n  \"IP Address, Port, Instance\": \"192.168.1.200, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Sample scan report generation\",\n  \"Start Date\": \"2021-02-18 15:55\",\n  \"End Date\": {\n    \"nil\": \"true\"\n  },\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Check Category\": \"Misconfigurations\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2745\",\n  \"Check\": \"'sa' account has not been disabled\",\n  \"Details\": \"Status=Enabled;Login=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
+          "code": "{\n  \"Organization\": \"Sample Organization Server\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"HOST1\",\n  \"IP Address, Port, Instance\": \"192.168.1.200, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Sample scan report generation\",\n  \"Start Date\": \"2021-02-18 15:55\",\n  \"End Date\": {\n    \"nil\": \"true\"\n  },\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Check Category\": \"Misconfigurations\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2745\",\n  \"Check\": \"&#39;sa&#39; account has not been disabled\",\n  \"Details\": \"Status=Enabled;Login=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
           "results": [
             {
               "status": "skipped",
@@ -20083,7 +20083,7 @@
           ]
         }
       ],
-      "sha256": "7c3bfe79b0661fa079fdecd100206b834abae9af4af414b5adcfdf9b534aadfb"
+      "sha256": "31b3b5408707eb84b195c705c004133cf83ed2e000d034fd4b70182272424546"
     }
   ],
   "passthrough": {}
