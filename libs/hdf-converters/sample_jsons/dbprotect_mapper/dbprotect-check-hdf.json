@@ -18882,11 +18882,11 @@
           },
           "refs": [],
           "source_location": {},
-          "title": "Default 'sa' account not present",
+          "title": "Default &#39;sa&#39; account not present",
           "id": "2814",
           "desc": "Task : Audit; Check Category : Improper Access Controls",
           "impact": 0.5,
-          "code": "{\n  \"Organization\": \"TEST ORGANIZATION (Local DBP server)\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"CONDS181\",\n  \"IP Address, Port, Instance\": \"10.0.10.204, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Heimdal Test scan report generation\",\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Result Status\": \"Finding\",\n  \"Check Category\": \"Improper Access Controls\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2814\",\n  \"Check\": \"Default 'sa' account not present\",\n  \"Details\": \"Account Name=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
+          "code": "{\n  \"Organization\": \"TEST ORGANIZATION (Local DBP server)\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"CONDS181\",\n  \"IP Address, Port, Instance\": \"10.0.10.204, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Heimdal Test scan report generation\",\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Result Status\": \"Finding\",\n  \"Check Category\": \"Improper Access Controls\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2814\",\n  \"Check\": \"Default &#39;sa&#39; account not present\",\n  \"Details\": \"Account Name=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
           "results": [
             {
               "status": "failed",
@@ -19869,11 +19869,11 @@
           },
           "refs": [],
           "source_location": {},
-          "title": "'sa' account has not been disabled",
+          "title": "&#39;sa&#39; account has not been disabled",
           "id": "2745",
           "desc": "Task : Audit; Check Category : Misconfigurations",
           "impact": 0.5,
-          "code": "{\n  \"Organization\": \"TEST ORGANIZATION (Local DBP server)\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"CONDS181\",\n  \"IP Address, Port, Instance\": \"10.0.10.204, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Heimdal Test scan report generation\",\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Result Status\": \"Finding\",\n  \"Check Category\": \"Misconfigurations\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2745\",\n  \"Check\": \"'sa' account has not been disabled\",\n  \"Details\": \"Status=Enabled;Login=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
+          "code": "{\n  \"Organization\": \"TEST ORGANIZATION (Local DBP server)\",\n  \"Task\": \"Audit\",\n  \"Asset Type\": \"Microsoft SQL Server\",\n  \"Asset\": \"CONDS181\",\n  \"IP Address, Port, Instance\": \"10.0.10.204, 1433, MSSQLSERVER\",\n  \"Job Name\": \"Heimdal Test scan report generation\",\n  \"Policy\": \"DISA-STIG SQL Server 2016 V2R1-1 Audit (Built-In)\",\n  \"Result Status\": \"Finding\",\n  \"Check Category\": \"Misconfigurations\",\n  \"Risk DV\": \"Medium\",\n  \"Check ID\": \"2745\",\n  \"Check\": \"&#39;sa&#39; account has not been disabled\",\n  \"Details\": \"Status=Enabled;Login=sa\",\n  \"Date\": \"Feb 18 2021 15:57\"\n}",
           "results": [
             {
               "status": "failed",
@@ -22096,7 +22096,7 @@
           ]
         }
       ],
-      "sha256": "bfe0638a39f3dc518a0d379fc7e022e69d274462017a795a175a8cc73460fe21"
+      "sha256": "2b2a85de8dc4d3e5a664ca20b75fc02b33129a7722b0f792b8aeec216974f8a7"
     }
   ],
   "passthrough": {}
