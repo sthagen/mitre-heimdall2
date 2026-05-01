@@ -2103,7 +2103,7 @@
   resolved "https://registry.npmjs.org/@eslint/object-schema/-/object-schema-3.0.5.tgz#88e9bf4d11d2b19c082e78ebe7ce88724a5eb091"
   integrity sha512-vqTaUEgxzm+YDSdElad6PiRoX4t8VGDjCtt05zn4nU810UIx/uNEV7/lZJ6KwFThKZOzOxzXy48da+No7HZaMw==
 
-"@eslint/plugin-kit@^0.6.0", "@eslint/plugin-kit@^0.6.1":
+"@eslint/plugin-kit@^0.6.1":
   version "0.6.1"
   resolved "https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.6.1.tgz#eb9e6689b56ce8bc1855bb33090e63f3fc115e8e"
   integrity sha512-iH1B076HoAshH1mLpHMgwdGeTs0CYwL0SPMkGuSebZrwBp16v415e9NZXg2jtrqPVQjf6IANe2Vtlr5KswtcZQ==
@@ -2111,7 +2111,7 @@
     "@eslint/core" "^1.1.1"
     levn "^0.4.1"
 
-"@eslint/plugin-kit@^0.7.1":
+"@eslint/plugin-kit@^0.7.0", "@eslint/plugin-kit@^0.7.1":
   version "0.7.1"
   resolved "https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.7.1.tgz#c4125fd015eceeb09b793109fdbcd4dd0a02d346"
   integrity sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==
@@ -9420,14 +9420,13 @@ eslint-plugin-vue@^10.8.0:
     xml-name-validator "^4.0.0"
 
 eslint-plugin-yml@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-yml/-/eslint-plugin-yml-3.3.1.tgz#96232db2bf723d286e4a361e9a190b2d452611bb"
-  integrity sha512-isntsZchaTqDMNNkD+CakrgA/pdUoJ45USWBKpuqfAW1MCuw731xX/vrXfoJFZU3tTFr24nCbDYmDfT2+g4QtQ==
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-yml/-/eslint-plugin-yml-3.3.2.tgz#b73907959518118498c9f7aee913dfa229cae6af"
+  integrity sha512-XjmOB/fLBwYHqevnpclPL938V+9ExX7xw1hPaM3IPePGyMFRV1giS16RjSTNhIyCv/Oh0G0PEdmmZPATJ02YCw==
   dependencies:
     "@eslint/core" "^1.0.1"
-    "@eslint/plugin-kit" "^0.6.0"
+    "@eslint/plugin-kit" "^0.7.0"
     "@ota-meshi/ast-token-store" "^0.3.0"
-    debug "^4.3.2"
     diff-sequences "^29.0.0"
     escape-string-regexp "5.0.0"
     natural-compare "^1.4.0"
